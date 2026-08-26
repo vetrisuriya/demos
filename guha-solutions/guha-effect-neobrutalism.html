@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guha Solutions — Neobrutalism Concept</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brutYellow: '#FACC15', brutPink: '#EC4899', brutBlue: '#2563EB',
+          brutLime: '#A3E635', brutOrange: '#FB923C', ink: '#0A0A0A'
+        },
+        fontFamily: { display:['Space Grotesk','sans-serif'], body:['Inter','sans-serif'] }
+      }
+    }
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  body{font-family:'Inter',sans-serif;}
+  .display{font-family:'Space Grotesk',sans-serif;}
+  .brut{border:3px solid #0A0A0A; box-shadow:8px 8px 0 #0A0A0A;}
+  .brut-sm{border:2.5px solid #0A0A0A; box-shadow:5px 5px 0 #0A0A0A;}
+  .brut-hover{transition:transform .15s, box-shadow .15s;}
+  .brut-hover:hover{transform:translate(-3px,-3px); box-shadow:11px 11px 0 #0A0A0A;}
+  @keyframes marquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .marquee-track{display:flex; width:max-content; animation:marquee 22s linear infinite;}
+  @keyframes marquee2{ from{transform:translateX(-50%);} to{transform:translateX(0);} }
+  .marquee-track2{display:flex; width:max-content; animation:marquee2 28s linear infinite;}
+  .icon3d{background:radial-gradient(circle at 32% 28%, #fff 0%, transparent 45%); box-shadow: inset 0 -6px 0 rgba(0,0,0,.18), 5px 5px 0 #0A0A0A;}
+  .scrollbar-none::-webkit-scrollbar{display:none;}
+  .scrollbar-none{-ms-overflow-style:none; scrollbar-width:none;}
+  .fade-slide{transition:opacity .8s ease;}
+</style>
+</head>
+<body class="bg-[#FDF6E9] text-ink">
+
+<div class="bg-ink text-white text-center py-2 text-xs font-mono tracking-wide">DESIGN CONCEPT — <span class="text-brutYellow font-bold">NEOBRUTALISM</span> · for review only</div>
+
+<!-- NAV -->
+<header class="border-b-4 border-ink bg-[#FDF6E9] sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-11 h-11 bg-brutYellow border-3 border-ink brut-sm flex items-center justify-center font-display font-extrabold text-lg">G</div>
+      <div class="font-display font-bold text-lg">GUHA SOLUTIONS</div>
+    </div>
+    <nav class="hidden md:flex gap-8 font-semibold text-sm uppercase tracking-wide">
+      <a href="#about" class="hover:text-brutPink">About</a>
+      <a href="#services" class="hover:text-brutPink">Services</a>
+      <a href="#rcm" class="hover:text-brutPink">RCM</a>
+      <a href="#gallery" class="hover:text-brutPink">Team</a>
+    </nav>
+    <a href="#contact" class="bg-brutPink text-white font-display font-bold text-sm px-5 py-2.5 border-3 border-ink brut-sm brut-hover">CONTACT US</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="max-w-7xl mx-auto px-6 pt-16 pb-10 grid md:grid-cols-2 gap-14 items-center">
+  <div>
+    <div class="inline-block bg-brutLime border-2 border-ink px-3 py-1 font-mono text-xs font-bold uppercase mb-6 -rotate-2">Trusted RCM Partner</div>
+    <h1 class="font-display font-extrabold text-5xl md:text-6xl leading-[0.98] mb-6">MEDICAL BILLING THAT HELPS YOU <span class="bg-brutBlue text-white px-2">GROW</span> &amp; SCALE.</h1>
+    <p class="text-lg text-ink/70 max-w-md mb-8">Guha Solutions brings the highest standards of excellence to your revenue cycle — so you focus on patients while we focus on payments.</p>
+    <div class="flex gap-4 flex-wrap">
+      <a href="#contact" class="bg-ink text-white font-display font-bold px-7 py-4 border-3 border-ink brut-sm brut-hover">TALK TO US →</a>
+      <a href="#services" class="bg-white font-display font-bold px-7 py-4 border-3 border-ink brut-sm brut-hover">SEE SERVICES</a>
+    </div>
+  </div>
+
+  <div class="relative">
+    <div class="absolute -top-5 -left-5 w-full h-full bg-brutOrange border-3 border-ink"></div>
+    <div class="relative brut overflow-hidden">
+      <img src="https://picsum.photos/seed/guhaoffice/700/520" class="w-full h-80 object-cover grayscale contrast-125" alt="office placeholder">
+      <div class="absolute top-4 right-4 bg-white border-3 border-ink brut-sm px-4 py-2 -rotate-6 font-display font-extrabold text-brutPink text-lg">PAID ✓</div>
+      <div class="bg-ink text-white p-5 flex justify-between items-center font-mono text-xs">
+        <span>AVG. TIME TO PAYMENT</span><span class="font-display font-extrabold text-brutYellow text-xl">14 DAYS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="bg-ink text-white border-y-4 border-ink overflow-hidden py-3">
+  <div class="marquee-track font-display font-bold uppercase text-sm tracking-wide">
+    <span class="px-6">✦ Get Paid Faster</span><span class="px-6">✦ Fewer Denials</span><span class="px-6">✦ 24/7 India + US Coverage</span><span class="px-6">✦ AI &amp; Bot Automation</span><span class="px-6">✦ 12+ RCM Services</span>
+    <span class="px-6">✦ Get Paid Faster</span><span class="px-6">✦ Fewer Denials</span><span class="px-6">✦ 24/7 India + US Coverage</span><span class="px-6">✦ AI &amp; Bot Automation</span><span class="px-6">✦ 12+ RCM Services</span>
+  </div>
+</div>
+
+<!-- STAT BENTO -->
+<section class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-5">
+  <div class="bg-brutYellow p-6 brut-sm brut-hover"><div class="icon3d w-11 h-11 rounded-full bg-white border-2 border-ink flex items-center justify-center text-lg mb-3">⚡</div><div class="font-display font-extrabold text-2xl">14 Days</div><div class="text-xs font-mono uppercase mt-1">Avg. Time to Payment</div></div>
+  <div class="bg-brutLime p-6 brut-sm brut-hover"><div class="icon3d w-11 h-11 rounded-full bg-white border-2 border-ink flex items-center justify-center text-lg mb-3">📉</div><div class="font-display font-extrabold text-2xl">↓ AR Days</div><div class="text-xs font-mono uppercase mt-1">Fewer Days in A/R</div></div>
+  <div class="bg-brutPink text-white p-6 brut-sm brut-hover"><div class="icon3d w-11 h-11 rounded-full bg-white border-2 border-ink flex items-center justify-center text-lg mb-3">🌍</div><div class="font-display font-extrabold text-2xl">24/7</div><div class="text-xs font-mono uppercase mt-1">India + US Coverage</div></div>
+  <div class="bg-brutBlue text-white p-6 brut-sm brut-hover"><div class="icon3d w-11 h-11 rounded-full bg-white border-2 border-ink flex items-center justify-center text-lg mb-3">🧾</div><div class="font-display font-extrabold text-2xl">12+</div><div class="text-xs font-mono uppercase mt-1">RCM Service Lines</div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-14 items-center">
+  <div class="relative">
+    <div class="absolute -bottom-5 -right-5 w-full h-full bg-brutLime border-3 border-ink"></div>
+    <img src="https://picsum.photos/seed/guhateam/600/440" class="relative brut w-full h-72 object-cover grayscale" alt="team placeholder">
+  </div>
+  <div>
+    <div class="font-mono text-xs uppercase tracking-wide text-brutPink font-bold mb-3">Who we are</div>
+    <h2 class="font-display font-extrabold text-4xl mb-5">BRINGS EXCELLENCE TO YOUR BUSINESS.</h2>
+    <p class="text-ink/70 mb-4">Guha Solutions offers an extensive range of solutions to help clients implement and upgrade best practices in healthcare, bringing the highest standards of excellence to your revenue cycle.</p>
+    <p class="text-ink/70 mb-6">We have the right expertise, process and technique to restructure your revenue cycle — whether you're a billing company or a healthcare entity.</p>
+    <div class="space-y-3">
+      <div class="flex items-center gap-3"><div class="w-7 h-7 bg-brutYellow border-2 border-ink flex items-center justify-center font-bold text-xs">✓</div><span class="font-semibold text-sm">Get paid faster with disciplined operations</span></div>
+      <div class="flex items-center gap-3"><div class="w-7 h-7 bg-brutYellow border-2 border-ink flex items-center justify-center font-bold text-xs">✓</div><span class="font-semibold text-sm">Automation via AI and bots</span></div>
+      <div class="flex items-center gap-3"><div class="w-7 h-7 bg-brutYellow border-2 border-ink flex items-center justify-center font-bold text-xs">✓</div><span class="font-semibold text-sm">Lower AR days, fewer denials</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENTO SERVICES -->
+<section id="services" class="max-w-7xl mx-auto px-6 py-16">
+  <div class="font-mono text-xs uppercase tracking-wide text-brutPink font-bold mb-3">What we handle for you</div>
+  <h2 class="font-display font-extrabold text-4xl mb-10">YOUR BILLING SHOULDN'T STRESS YOU OUT.</h2>
+  <div class="grid md:grid-cols-3 gap-5">
+    <div class="md:col-span-2 bg-brutBlue text-white p-8 brut brut-hover flex flex-col justify-between min-h-[220px]">
+      <div class="icon3d w-14 h-14 rounded-2xl bg-white border-2 border-ink flex items-center justify-center text-2xl">💰</div>
+      <div><h3 class="font-display font-bold text-2xl mb-2">Cash Posting</h3><p class="text-white/85 text-sm max-w-md">When a claim is processed and paid, we apply the amount to each patient's account accurately and on schedule.</p></div>
+    </div>
+    <div class="bg-white p-8 brut brut-hover flex flex-col justify-between min-h-[220px]">
+      <div class="icon3d w-14 h-14 rounded-2xl bg-brutYellow border-2 border-ink flex items-center justify-center text-2xl">🛡️</div>
+      <div><h3 class="font-display font-bold text-xl mb-2">Eligibility Verification</h3><p class="text-ink/70 text-sm">New and emergency accounts set up right, before changes become denials.</p></div>
+    </div>
+    <div class="bg-white p-8 brut brut-hover flex flex-col justify-between min-h-[200px]">
+      <div class="icon3d w-14 h-14 rounded-2xl bg-brutLime border-2 border-ink flex items-center justify-center text-2xl">📋</div>
+      <div><h3 class="font-display font-bold text-xl mb-2">Accounts Receivable</h3><p class="text-ink/70 text-sm">Full billing, insurance and AR management with EOB posting.</p></div>
+    </div>
+    <div class="md:col-span-2 bg-brutOrange p-8 brut brut-hover flex flex-col justify-between min-h-[200px]">
+      <div class="icon3d w-14 h-14 rounded-2xl bg-white border-2 border-ink flex items-center justify-center text-2xl">🤖</div>
+      <div><h3 class="font-display font-bold text-2xl mb-2">Automation, AI &amp; Bots</h3><p class="text-ink/80 text-sm max-w-md">Streamlined processes and technology increase productivity and workflow across your whole revenue cycle.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONS CAROUSEL -->
+<section class="bg-ink text-white py-16 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <div class="font-mono text-xs uppercase tracking-wide text-brutYellow font-bold mb-3">Why practices choose us</div>
+        <h2 class="font-display font-extrabold text-4xl">REASONS TO CHOOSE GUHA.</h2>
+      </div>
+      <div class="hidden md:flex gap-3">
+        <button onclick="document.getElementById('reasonTrack').scrollBy({left:-320,behavior:'smooth'})" class="w-11 h-11 bg-white text-ink border-3 border-white font-bold brut-sm">←</button>
+        <button onclick="document.getElementById('reasonTrack').scrollBy({left:320,behavior:'smooth'})" class="w-11 h-11 bg-brutYellow text-ink border-3 border-ink font-bold brut-sm">→</button>
+      </div>
+    </div>
+    <div id="reasonTrack" class="flex gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory pb-4">
+      <div class="snap-start shrink-0 w-72 bg-brutPink text-white p-6 brut-sm"><div class="font-mono text-xs mb-3">REASON 01</div><h4 class="font-display font-bold text-xl mb-2">Get paid faster</h4><p class="text-sm text-white/85">Insurers pay you faster when claims are clean the first time.</p></div>
+      <div class="snap-start shrink-0 w-72 bg-brutLime text-ink p-6 brut-sm"><div class="font-mono text-xs mb-3">REASON 02</div><h4 class="font-display font-bold text-xl mb-2">Fewer adjustments</h4><p class="text-sm text-ink/70">Very little gets written off to insurance adjustments.</p></div>
+      <div class="snap-start shrink-0 w-72 bg-brutBlue text-white p-6 brut-sm"><div class="font-mono text-xs mb-3">REASON 03</div><h4 class="font-display font-bold text-xl mb-2">Focus on your expertise</h4><p class="text-sm text-white/85">You focus on patient co-pays — we handle the rest.</p></div>
+      <div class="snap-start shrink-0 w-72 bg-brutYellow text-ink p-6 brut-sm"><div class="font-mono text-xs mb-3">REASON 04</div><h4 class="font-display font-bold text-xl mb-2">Real-time reporting</h4><p class="text-sm text-ink/70">MIS reports keep you informed without asking us for updates.</p></div>
+      <div class="snap-start shrink-0 w-72 bg-white text-ink p-6 brut-sm"><div class="font-mono text-xs mb-3">REASON 05</div><h4 class="font-display font-bold text-xl mb-2">One team, two time zones</h4><p class="text-sm text-ink/70">India + US coverage means work keeps moving after hours.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RCM BENTO -->
+<section id="rcm" class="max-w-7xl mx-auto px-6 py-16">
+  <div class="font-mono text-xs uppercase tracking-wide text-brutPink font-bold mb-3">Full service line</div>
+  <h2 class="font-display font-extrabold text-4xl mb-10">OUR RCM SERVICES.</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="bg-white p-4 brut-sm text-sm font-semibold brut-hover">Physician Enrollment &amp; Credentialing</div>
+    <div class="bg-brutYellow p-4 brut-sm text-sm font-semibold brut-hover">Patient Eligibility Verification</div>
+    <div class="bg-white p-4 brut-sm text-sm font-semibold brut-hover">Demographics Entry</div>
+    <div class="bg-brutLime p-4 brut-sm text-sm font-semibold brut-hover">Charge Capture &amp; Audits</div>
+    <div class="bg-brutPink text-white p-4 brut-sm text-sm font-semibold brut-hover">Medical Coding / Audit</div>
+    <div class="bg-white p-4 brut-sm text-sm font-semibold brut-hover">Remittance / Reconciliation</div>
+    <div class="bg-brutBlue text-white p-4 brut-sm text-sm font-semibold brut-hover">Accounts Receivables</div>
+    <div class="bg-white p-4 brut-sm text-sm font-semibold brut-hover">Denial Management</div>
+    <div class="bg-brutOrange p-4 brut-sm text-sm font-semibold brut-hover">Patient Statements</div>
+    <div class="bg-white p-4 brut-sm text-sm font-semibold brut-hover">Credit Balance Check</div>
+    <div class="bg-brutYellow p-4 brut-sm text-sm font-semibold brut-hover">MIS Reporting</div>
+    <div class="bg-white p-4 brut-sm text-sm font-semibold brut-hover">Medical Scribe</div>
+  </div>
+</section>
+
+<!-- GALLERY SCROLLING IMAGES -->
+<section id="gallery" class="py-16 bg-[#FDF6E9] border-y-4 border-ink overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 mb-8">
+    <div class="font-mono text-xs uppercase tracking-wide text-brutPink font-bold mb-3">Inside Guha</div>
+    <h2 class="font-display font-extrabold text-4xl">OUR TEAM AT WORK.</h2>
+  </div>
+  <div class="marquee-track2 gap-5 px-6">
+    <img src="https://picsum.photos/seed/g1/320/220" class="w-72 h-48 object-cover border-3 border-ink brut-sm grayscale mr-5" alt="">
+    <img src="https://picsum.photos/seed/g2/320/220" class="w-72 h-48 object-cover border-3 border-ink brut-sm grayscale mr-5" alt="">
+    <img src="https://picsum.photos/seed/g3/320/220" class="w-72 h-48 object-cover border-3 border-ink brut-sm grayscale mr-5" alt="">
+    <img src="https://picsum.photos/seed/g4/320/220" class="w-72 h-48 object-cover border-3 border-ink brut-sm grayscale mr-5" alt="">
+    <img src="https://picsum.photos/seed/g1/320/220" class="w-72 h-48 object-cover border-3 border-ink brut-sm grayscale mr-5" alt="">
+    <img src="https://picsum.photos/seed/g2/320/220" class="w-72 h-48 object-cover border-3 border-ink brut-sm grayscale mr-5" alt="">
+    <img src="https://picsum.photos/seed/g3/320/220" class="w-72 h-48 object-cover border-3 border-ink brut-sm grayscale mr-5" alt="">
+    <img src="https://picsum.photos/seed/g4/320/220" class="w-72 h-48 object-cover border-3 border-ink brut-sm grayscale mr-5" alt="">
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="font-mono text-xs uppercase tracking-wide text-brutPink font-bold mb-3">Platforms we work in</div>
+  <h2 class="font-display font-extrabold text-4xl mb-8">SYSTEMS YOU ALREADY USE.</h2>
+  <div class="flex flex-wrap gap-3">
+    <span class="bg-white border-2 border-ink px-4 py-2 font-mono text-sm brut-sm">Allscripts</span>
+    <span class="bg-white border-2 border-ink px-4 py-2 font-mono text-sm brut-sm">Athenahealth</span>
+    <span class="bg-white border-2 border-ink px-4 py-2 font-mono text-sm brut-sm">Epic</span>
+    <span class="bg-white border-2 border-ink px-4 py-2 font-mono text-sm brut-sm">eClinicalWorks</span>
+    <span class="bg-white border-2 border-ink px-4 py-2 font-mono text-sm brut-sm">Kareo</span>
+    <span class="bg-white border-2 border-ink px-4 py-2 font-mono text-sm brut-sm">Office Ally</span>
+    <span class="bg-white border-2 border-ink px-4 py-2 font-mono text-sm brut-sm">Navicure</span>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="bg-brutPink text-white py-20 text-center border-y-4 border-ink">
+  <div class="max-w-2xl mx-auto px-6">
+    <h2 class="font-display font-extrabold text-4xl mb-4">BECOME A PART OF THE BUSINESS TODAY.</h2>
+    <p class="text-white/90 mb-8">Tell us about your practice or billing company, and we'll show you where your revenue cycle is leaking.</p>
+    <a href="#" class="inline-block bg-ink text-white font-display font-bold px-8 py-4 border-3 border-white brut-sm brut-hover">CONTACT US →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-ink text-white/70 py-14 text-sm">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 pb-10 border-b border-white/15">
+    <div>
+      <div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 bg-brutYellow border-2 border-white flex items-center justify-center font-display font-extrabold text-ink">G</div><span class="font-display font-bold text-white">Guha Solutions</span></div>
+      <p class="max-w-xs">A medical billing company associated globally, with most outsourcing activity performed from our Indian office.</p>
+    </div>
+    <div>
+      <div class="font-mono text-xs text-brutYellow uppercase mb-4">Quick Links</div>
+      <ul class="space-y-2"><li>Home</li><li>About Us</li><li>Our Services</li><li>Careers</li><li>Contact</li></ul>
+    </div>
+    <div>
+      <div class="font-mono text-xs text-brutYellow uppercase mb-4">Our Details</div>
+      <ul class="space-y-2"><li>US: +1 656 300 7472</li><li>IND: +91 90925 50369</li><li>info@guhasolution.com</li><li>Vellore – 632001, TN, India</li></ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 pt-6 flex justify-between flex-wrap gap-3 text-xs font-mono">
+    <span>© Guha Technology and Solutions Pvt Ltd</span><span>Design concept by Vetri Suriya</span>
+  </div>
+</footer>
+
+</body>
+</html>

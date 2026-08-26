@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guha Solutions — Neumorphism Concept</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { base:'#E7ECF3', teal:{500:'#0D9488',600:'#0F766E'}, sky:{500:'#0EA5E9'}, amber:{500:'#F59E0B'} },
+      fontFamily: { display:['Outfit','sans-serif'], body:['Inter','sans-serif'] }
+    }}
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  body{font-family:'Inter',sans-serif; background:#E7ECF3;}
+  .display{font-family:'Outfit',sans-serif;}
+  .neu{background:#E7ECF3; box-shadow: 9px 9px 18px #c7ccd3, -9px -9px 18px #ffffff;}
+  .neu-sm{background:#E7ECF3; box-shadow: 5px 5px 10px #c7ccd3, -5px -5px 10px #ffffff;}
+  .neu-inset{background:#E7ECF3; box-shadow: inset 6px 6px 12px #c7ccd3, inset -6px -6px 12px #ffffff;}
+  .neu-btn{transition:box-shadow .15s, transform .15s;}
+  .neu-btn:hover{box-shadow: 4px 4px 8px #c7ccd3, -4px -4px 8px #ffffff;}
+  .neu-btn:active{box-shadow: inset 4px 4px 8px #c7ccd3, inset -4px -4px 8px #ffffff;}
+  .orb-soft{background:linear-gradient(155deg, #ffffff, #E7ECF3); box-shadow: 6px 6px 12px #c7ccd3, -6px -6px 12px #ffffff, inset 0 -2px 4px rgba(255,255,255,.6);}
+  .slide-fade{transition:opacity .6s ease, transform .6s ease;}
+  .scrollbar-none::-webkit-scrollbar{display:none;} .scrollbar-none{-ms-overflow-style:none; scrollbar-width:none;}
+</style>
+</head>
+<body class="text-slate-700">
+
+<div class="bg-slate-800 text-white text-center py-2 text-xs">DESIGN CONCEPT — <span class="text-amber-400 font-semibold">NEUMORPHISM</span> · for review only</div>
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 bg-[#E7ECF3]">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-2xl orb-soft flex items-center justify-center font-display font-bold text-teal-600">G</div>
+      <span class="font-display font-semibold text-lg text-slate-800">Guha Solutions</span>
+    </div>
+    <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-500">
+      <a href="#about" class="hover:text-teal-600">About</a>
+      <a href="#services" class="hover:text-teal-600">Services</a>
+      <a href="#rcm" class="hover:text-teal-600">RCM</a>
+      <a href="#gallery" class="hover:text-teal-600">Gallery</a>
+    </nav>
+    <a href="#contact" class="neu neu-btn rounded-2xl px-6 py-3 text-sm font-semibold text-teal-600">Contact Us</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="max-w-7xl mx-auto px-6 pt-14 pb-16 grid md:grid-cols-2 gap-14 items-center">
+  <div>
+    <div class="neu-sm inline-block rounded-full px-4 py-2 text-xs font-semibold text-teal-600 mb-6">Revenue Cycle, Made Effortless</div>
+    <h1 class="font-display font-bold text-4xl md:text-5xl leading-tight text-slate-800 mb-6">Medical billing that helps you <span class="text-teal-600">grow and scale.</span></h1>
+    <p class="text-slate-500 max-w-md mb-8">Guha Solutions brings the highest standards of excellence to your revenue cycle — so you focus on patient care while we focus on payments.</p>
+    <div class="flex gap-4 flex-wrap">
+      <a href="#contact" class="neu neu-btn rounded-2xl px-7 py-4 font-semibold text-white bg-teal-600" style="box-shadow:6px 6px 14px #b9dcd7, -6px -6px 14px #ffffff;">Talk to us</a>
+      <a href="#services" class="neu neu-btn rounded-2xl px-7 py-4 font-semibold text-slate-600">See our services</a>
+    </div>
+  </div>
+
+  <div class="neu rounded-[2rem] p-8 relative overflow-hidden">
+    <img src="https://picsum.photos/seed/neuoffice/560/300" class="w-full h-44 object-cover rounded-2xl mb-6 opacity-90" alt="office placeholder">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="neu-inset rounded-2xl p-4"><div class="text-xs text-slate-400 mb-1">Days to payment</div><div class="font-display font-bold text-2xl text-teal-600">14</div></div>
+      <div class="neu-inset rounded-2xl p-4"><div class="text-xs text-slate-400 mb-1">Clean claim rate</div><div class="font-display font-bold text-2xl text-sky-500">99.1%</div></div>
+      <div class="neu-inset rounded-2xl p-4"><div class="text-xs text-slate-400 mb-1">Denial rate</div><div class="font-display font-bold text-2xl text-amber-500">0.4%</div></div>
+      <div class="neu-inset rounded-2xl p-4"><div class="text-xs text-slate-400 mb-1">Coverage</div><div class="font-display font-bold text-2xl text-slate-700">24/7</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATBAR -->
+<section class="max-w-7xl mx-auto px-6 pb-16">
+  <div class="neu rounded-3xl p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="text-center p-3"><div class="orb-soft w-12 h-12 rounded-2xl mx-auto mb-3 flex items-center justify-center text-lg">⚡</div><div class="font-display font-bold text-xl">14 days</div><div class="text-xs text-slate-400 mt-1">Avg. Time to Payment</div></div>
+    <div class="text-center p-3"><div class="orb-soft w-12 h-12 rounded-2xl mx-auto mb-3 flex items-center justify-center text-lg">📉</div><div class="font-display font-bold text-xl">↓ AR</div><div class="text-xs text-slate-400 mt-1">Fewer Days in A/R</div></div>
+    <div class="text-center p-3"><div class="orb-soft w-12 h-12 rounded-2xl mx-auto mb-3 flex items-center justify-center text-lg">🌍</div><div class="font-display font-bold text-xl">24/7</div><div class="text-xs text-slate-400 mt-1">India + US Coverage</div></div>
+    <div class="text-center p-3"><div class="orb-soft w-12 h-12 rounded-2xl mx-auto mb-3 flex items-center justify-center text-lg">🧾</div><div class="font-display font-bold text-xl">12+</div><div class="text-xs text-slate-400 mt-1">RCM Service Lines</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-16 items-center">
+  <div class="neu rounded-[2rem] p-3">
+    <img src="https://picsum.photos/seed/neuteam/560/400" class="rounded-[1.6rem] w-full h-72 object-cover" alt="team placeholder">
+  </div>
+  <div>
+    <div class="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">Who we are</div>
+    <h2 class="font-display font-bold text-3xl md:text-4xl text-slate-800 mb-5">Brings excellence to your business.</h2>
+    <p class="text-slate-500 mb-4">Guha Solutions offers an extensive range of solutions to help clients implement and upgrade best practices in healthcare, bringing the highest standards of excellence to your revenue cycle.</p>
+    <p class="text-slate-500 mb-6">We have the right expertise, process and technique to restructure your revenue cycle — whether you're a billing company or a healthcare entity.</p>
+    <div class="space-y-3">
+      <div class="neu-sm rounded-2xl p-4 flex items-center gap-4"><div class="orb-soft w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center text-sm">💵</div><div><div class="font-semibold text-sm">Get paid faster</div><div class="text-xs text-slate-400">Dedicated resources, disciplined procedures.</div></div></div>
+      <div class="neu-sm rounded-2xl p-4 flex items-center gap-4"><div class="orb-soft w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center text-sm">🤖</div><div><div class="font-semibold text-sm">Create efficiencies</div><div class="text-xs text-slate-400">Automation via AI and bots.</div></div></div>
+      <div class="neu-sm rounded-2xl p-4 flex items-center gap-4"><div class="orb-soft w-9 h-9 rounded-xl flex-shrink-0 flex items-center justify-center text-sm">📈</div><div><div class="font-semibold text-sm">Increase profitability</div><div class="text-xs text-slate-400">Lower AR days, fewer denials.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOFT BENTO SERVICES -->
+<section id="services" class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">What we handle for you</div>
+  <h2 class="font-display font-bold text-3xl md:text-4xl text-slate-800 mb-10">Your medical billing shouldn't stress you out.</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="neu rounded-3xl p-8"><div class="orb-soft w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5">💰</div><h3 class="font-display font-semibold text-xl mb-2">Cash Posting</h3><p class="text-sm text-slate-500">Payments applied to each patient's account accurately and on schedule.</p></div>
+    <div class="neu rounded-3xl p-8"><div class="orb-soft w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5">🛡️</div><h3 class="font-display font-semibold text-xl mb-2">Eligibility Verification</h3><p class="text-sm text-slate-500">Accounts set up right, before changes become denials.</p></div>
+    <div class="neu rounded-3xl p-8"><div class="orb-soft w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5">📋</div><h3 class="font-display font-semibold text-xl mb-2">Accounts Receivable</h3><p class="text-sm text-slate-500">Full billing, insurance and AR management with EOB posting.</p></div>
+  </div>
+</section>
+
+<!-- REASONS SLIDER (auto-advance) -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">Why practices choose us</div>
+  <h2 class="font-display font-bold text-3xl md:text-4xl text-slate-800 mb-10">Reasons to choose Guha.</h2>
+  <div class="neu rounded-3xl p-10 relative min-h-[220px] flex items-center">
+    <div id="reasonSlides" class="w-full">
+      <div class="reason-slide slide-fade">
+        <div class="orb-soft w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5">🚀</div>
+        <h4 class="font-display font-semibold text-2xl mb-3">Get paid faster</h4>
+        <p class="text-slate-500 max-w-lg">Insurers pay you faster when claims are clean the first time.</p>
+      </div>
+      <div class="reason-slide slide-fade hidden">
+        <div class="orb-soft w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5">📉</div>
+        <h4 class="font-display font-semibold text-2xl mb-3">Fewer adjustments</h4>
+        <p class="text-slate-500 max-w-lg">Very little gets written off to insurance adjustments.</p>
+      </div>
+      <div class="reason-slide slide-fade hidden">
+        <div class="orb-soft w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5">🎯</div>
+        <h4 class="font-display font-semibold text-2xl mb-3">Focus on your expertise</h4>
+        <p class="text-slate-500 max-w-lg">You focus on patient co-pays — we handle the rest.</p>
+      </div>
+      <div class="reason-slide slide-fade hidden">
+        <div class="orb-soft w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5">📊</div>
+        <h4 class="font-display font-semibold text-2xl mb-3">Real-time reporting</h4>
+        <p class="text-slate-500 max-w-lg">MIS reports keep you informed at every stage.</p>
+      </div>
+    </div>
+    <button onclick="prevReason()" class="neu neu-btn absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center">←</button>
+    <button onclick="nextReason()" class="neu neu-btn absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center">→</button>
+  </div>
+  <div class="flex justify-center gap-2 mt-6" id="reasonDots">
+    <span class="w-2.5 h-2.5 rounded-full neu-inset rdot"></span>
+    <span class="w-2.5 h-2.5 rounded-full neu-inset rdot"></span>
+    <span class="w-2.5 h-2.5 rounded-full neu-inset rdot"></span>
+    <span class="w-2.5 h-2.5 rounded-full neu-inset rdot"></span>
+  </div>
+</section>
+
+<!-- RCM SOFT GRID -->
+<section id="rcm" class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">Full service line</div>
+  <h2 class="font-display font-bold text-3xl md:text-4xl text-slate-800 mb-10">Our RCM Services.</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Physician Enrollment &amp; Credentialing</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Patient Eligibility Verification</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Demographics Entry</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Charge Capture &amp; Audits</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Medical Coding / Audit</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Remittance / Reconciliation</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Accounts Receivables</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Denial Management</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Patient Statements</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Credit Balance Check</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">MIS Reporting</div>
+    <div class="neu-sm rounded-2xl p-4 text-sm font-medium neu-btn">Medical Scribe</div>
+  </div>
+</section>
+
+<!-- GALLERY CAROUSEL -->
+<section id="gallery" class="py-16 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 mb-8">
+    <div class="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">Inside Guha</div>
+    <h2 class="font-display font-bold text-3xl md:text-4xl text-slate-800">Our team at work.</h2>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 flex gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory pb-4">
+    <div class="snap-start shrink-0 neu rounded-3xl p-3"><img src="https://picsum.photos/seed/nu1/300/210" class="w-72 h-44 object-cover rounded-2xl"></div>
+    <div class="snap-start shrink-0 neu rounded-3xl p-3"><img src="https://picsum.photos/seed/nu2/300/210" class="w-72 h-44 object-cover rounded-2xl"></div>
+    <div class="snap-start shrink-0 neu rounded-3xl p-3"><img src="https://picsum.photos/seed/nu3/300/210" class="w-72 h-44 object-cover rounded-2xl"></div>
+    <div class="snap-start shrink-0 neu rounded-3xl p-3"><img src="https://picsum.photos/seed/nu4/300/210" class="w-72 h-44 object-cover rounded-2xl"></div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+  <div class="text-xs font-semibold uppercase tracking-wide text-teal-600 mb-3">Platforms we work in</div>
+  <h2 class="font-display font-bold text-3xl md:text-4xl text-slate-800 mb-8">Systems you already use.</h2>
+  <div class="flex flex-wrap gap-3">
+    <span class="neu-sm rounded-full px-5 py-2.5 text-sm">Allscripts</span>
+    <span class="neu-sm rounded-full px-5 py-2.5 text-sm">Athenahealth</span>
+    <span class="neu-sm rounded-full px-5 py-2.5 text-sm">Epic</span>
+    <span class="neu-sm rounded-full px-5 py-2.5 text-sm">eClinicalWorks</span>
+    <span class="neu-sm rounded-full px-5 py-2.5 text-sm">Kareo</span>
+    <span class="neu-sm rounded-full px-5 py-2.5 text-sm">Office Ally</span>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="max-w-5xl mx-auto px-6 pb-20">
+  <div class="neu rounded-[2.5rem] p-14 text-center">
+    <h2 class="font-display font-bold text-3xl md:text-4xl text-slate-800 mb-4">Become a part of the business today.</h2>
+    <p class="text-slate-500 mb-8 max-w-lg mx-auto">Tell us about your practice or billing company, and we'll show you where your revenue cycle is leaking.</p>
+    <a href="#" class="neu neu-btn inline-block rounded-2xl px-8 py-4 font-semibold text-white bg-teal-600" style="box-shadow:6px 6px 14px #b9dcd7, -6px -6px 14px #ffffff;">Contact Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-800 text-slate-400 py-14 text-sm">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+    <div><div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-teal-600 flex items-center justify-center font-display font-bold text-white">G</div><span class="font-display font-semibold text-white">Guha Solutions</span></div>
+      <p class="max-w-xs">A medical billing company associated globally, with most outsourcing activity performed from our Indian office.</p></div>
+    <div><div class="text-xs uppercase text-teal-400 mb-4">Quick Links</div><ul class="space-y-2"><li>Home</li><li>About Us</li><li>Our Services</li><li>Careers</li><li>Contact</li></ul></div>
+    <div><div class="text-xs uppercase text-teal-400 mb-4">Our Details</div><ul class="space-y-2"><li>US: +1 656 300 7472</li><li>IND: +91 90925 50369</li><li>info@guhasolution.com</li><li>Vellore – 632001, TN, India</li></ul></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 pt-6 flex justify-between flex-wrap gap-3 text-xs">
+    <span>© Guha Technology and Solutions Pvt Ltd</span><span>Design concept by Vetri Suriya</span>
+  </div>
+</footer>
+
+<script>
+  const rSlides = document.querySelectorAll('.reason-slide');
+  const rDots = document.querySelectorAll('.rdot');
+  let rCur = 0;
+  function showReason(i){
+    rSlides[rCur].classList.add('hidden'); rDots[rCur].classList.remove('bg-teal-500');
+    rCur = (i+rSlides.length)%rSlides.length;
+    rSlides[rCur].classList.remove('hidden'); rDots[rCur].classList.add('bg-teal-500');
+  }
+  function nextReason(){ showReason(rCur+1); }
+  function prevReason(){ showReason(rCur-1); }
+  rDots[0].classList.add('bg-teal-500');
+  setInterval(()=>{ nextReason(); }, 4500);
+</script>
+</body>
+</html>

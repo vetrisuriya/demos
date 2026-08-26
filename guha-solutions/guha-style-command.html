@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guha Technology & Solutions — Style 4: Command Center</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:#101B16;
+    --panel:#16241D;
+    --panel-2:#1C2E24;
+    --amber:#E8B33D;
+    --lime:#9FD356;
+    --white:#F2F5F1;
+    --dim:#8CA298;
+    --line:#28382F;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--white); font-family:'Manrope',sans-serif; line-height:1.6;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 32px;}
+  h1,h2,h3,h4{font-family:'Sora',sans-serif; font-weight:700; letter-spacing:-.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  .banner{background:var(--panel); color:var(--dim); text-align:center; padding:9px 20px; font-size:12px; font-family:'IBM Plex Mono',monospace; border-bottom:1px solid var(--line);}
+  .banner strong{color:var(--amber);}
+
+  header{border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); z-index:50;}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .mark{width:36px; height:36px; border-radius:8px; background:var(--lime); display:flex; align-items:center; justify-content:center; color:var(--bg); font-weight:800;}
+  .brand-name{font-family:'Sora',sans-serif; font-size:16px; font-weight:700;}
+  nav.links{display:flex; gap:30px; font-size:13.5px; color:var(--dim); font-family:'IBM Plex Mono',monospace;}
+  @media(max-width:860px){nav.links{display:none;}}
+  .btn{background:var(--amber); color:var(--bg); font-weight:700; font-size:13.5px; padding:11px 22px; border-radius:6px;}
+  .btn-outline{border:1px solid var(--line); color:var(--white); font-weight:600; font-size:13.5px; padding:10px 20px; border-radius:6px;}
+
+  .hero{padding:64px 0 0;}
+  .status-strip{display:flex; align-items:center; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--lime); margin-bottom:24px;}
+  .status-strip .live{width:7px; height:7px; border-radius:50%; background:var(--lime); box-shadow:0 0 0 4px rgba(159,211,86,.18);}
+  .hero-inner{display:grid; grid-template-columns:1.1fr .9fr; gap:50px; align-items:end; padding-bottom:50px;}
+  @media(max-width:920px){.hero-inner{grid-template-columns:1fr;}}
+  h1{font-size:clamp(32px,4.2vw,50px); line-height:1.08;}
+  h1 span{color:var(--amber);}
+  .hero-sub{margin-top:20px; color:var(--dim); font-size:15.5px; max-width:460px;}
+  .hero-ctas{display:flex; gap:12px; margin-top:32px;}
+
+  /* Ops metrics panel — signature element, ties to "AI and BOTS" copy */
+  .ops{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px;}
+  .ops-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--dim); text-transform:uppercase; letter-spacing:.06em;}
+  .ops-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border-radius:8px; overflow:hidden;}
+  .ops-cell{background:var(--panel-2); padding:18px;}
+  .ops-cell .lbl{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--dim); text-transform:uppercase; letter-spacing:.04em;}
+  .ops-cell .val{font-family:'Sora',sans-serif; font-size:22px; font-weight:700; margin-top:6px; color:var(--white);}
+  .ops-cell .val.up{color:var(--lime);}
+  .ops-cell .val.warn{color:var(--amber);}
+  .ops-bar{height:6px; border-radius:4px; background:var(--line); margin-top:10px; overflow:hidden;}
+  .ops-bar i{display:block; height:100%; background:var(--lime); width:91%;}
+
+  .statbar{border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .statbar .wrap{display:grid; grid-template-columns:repeat(4,1fr);}
+  .sitem{padding:22px 30px; border-right:1px solid var(--line);}
+  .sitem:last-child{border-right:none;}
+  .sitem .num{font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:var(--amber);}
+  .sitem .lbl{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--dim); margin-top:4px;}
+  @media(max-width:760px){.statbar .wrap{grid-template-columns:1fr 1fr;} .sitem{border-bottom:1px solid var(--line);}}
+
+  section{padding:88px 0;}
+  .kicker{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--lime); text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px;}
+  h2{font-size:clamp(24px,3vw,32px);}
+  .lede{color:var(--dim); font-size:15px; margin-top:14px; max-width:540px;}
+
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .about p{color:var(--dim); font-size:14.8px; margin-bottom:14px;}
+  .about a{color:var(--lime); font-weight:600;}
+  .value-row{display:flex; gap:16px; padding:18px 0; border-top:1px solid var(--line);}
+  .value-row:last-child{border-bottom:1px solid var(--line);}
+  .value-row .n{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:12px; padding-top:3px;}
+  .value-row h4{font-size:15px; margin-bottom:4px;}
+  .value-row p{color:var(--dim); font-size:13px;}
+
+  .stress{background:var(--panel);}
+  .sgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  @media(max-width:860px){.sgrid{grid-template-columns:1fr;}}
+  .scard{background:var(--panel-2); border:1px solid var(--line); border-radius:10px; padding:26px;}
+  .scard .tag{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--lime); margin-bottom:14px;}
+  .scard h4{font-size:16px; margin-bottom:8px;}
+  .scard p{color:var(--dim); font-size:13.3px;}
+
+  .rgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:36px;}
+  @media(max-width:860px){.rgrid{grid-template-columns:1fr;}}
+  .rcard{border:1px solid var(--line); border-radius:10px; padding:24px; background:var(--panel);}
+  .rcard .rn{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--amber);}
+  .rcard h4{margin:12px 0 8px; font-size:16px;}
+  .rcard p{color:var(--dim); font-size:13px;}
+
+  .rcm-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin-top:34px;}
+  @media(max-width:760px){.rcm-grid{grid-template-columns:1fr;}}
+  .rrow{display:flex; justify-content:space-between; align-items:center; background:var(--panel); padding:16px 20px;}
+  .rrow .rname{font-size:14px; font-weight:500;}
+  .rrow .status{font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--lime); background:rgba(159,211,86,.12); padding:4px 10px; border-radius:20px;}
+
+  .prow{display:flex; flex-wrap:wrap; gap:10px; margin-top:30px;}
+  .chip{background:var(--panel-2); border:1px solid var(--line); border-radius:6px; padding:9px 16px; font-size:12px; font-family:'IBM Plex Mono',monospace; color:var(--dim);}
+
+  .cta{background:linear-gradient(160deg, var(--panel) 0%, #16241D 60%, #1E3324 100%); text-align:center; border-top:1px solid var(--line);}
+  .cta p{color:var(--dim); margin-top:14px; max-width:500px; margin-left:auto; margin-right:auto;}
+  .cta .btn{margin-top:28px; display:inline-block;}
+
+  footer{background:var(--panel); color:var(--dim); padding:54px 0 26px; font-size:13.3px; border-top:1px solid var(--line);}
+  .fgrid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:44px; padding-bottom:34px; border-bottom:1px solid var(--line);}
+  @media(max-width:760px){.fgrid{grid-template-columns:1fr; gap:26px;}}
+  footer h5{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--lime); text-transform:uppercase; margin-bottom:14px;}
+  footer ul{list-style:none;} footer li{margin-bottom:8px;}
+  .fbottom{display:flex; justify-content:space-between; padding-top:20px; font-size:11.5px; flex-wrap:wrap; gap:8px;}
+</style>
+</head>
+<body>
+<div class="banner">DESIGN PROPOSAL · STYLE 4 — <strong>Command Center</strong> · for review only</div>
+
+<header>
+  <div class="nav wrap">
+    <div class="brand"><div class="mark">G</div><div class="brand-name">Guha Technology &amp; Solutions</div></div>
+    <nav class="links"><a href="#about">ABOUT</a><a href="#services">SERVICES</a><a href="#rcm">RCM</a><a href="#partners">PARTNERS</a></nav>
+    <a class="btn" href="#contact">Contact Us</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="status-strip"><div class="live"></div> ALL SYSTEMS OPERATIONAL — RCM PIPELINE ACTIVE</div>
+    <div class="hero-inner">
+      <div>
+        <h1>Medical billing that helps you <span>grow and scale.</span></h1>
+        <p class="hero-sub">Guha Solutions runs your revenue cycle with automation (AI &amp; bots) and disciplined process — so claims move, denials shrink, and cash lands faster.</p>
+        <div class="hero-ctas"><a class="btn" href="#contact">Talk to us</a><a class="btn-outline" href="#services">See our services</a></div>
+      </div>
+      <div class="ops">
+        <div class="ops-head"><span>REVENUE CYCLE / LIVE</span><span>UPDATED NOW</span></div>
+        <div class="ops-grid">
+          <div class="ops-cell"><div class="lbl">Clean claim rate</div><div class="val up">99.1%</div><div class="ops-bar"><i style="width:99%;"></i></div></div>
+          <div class="ops-cell"><div class="lbl">Denial rate</div><div class="val">0.4%</div><div class="ops-bar"><i style="width:4%; background:var(--amber);"></i></div></div>
+          <div class="ops-cell"><div class="lbl">Days in A/R</div><div class="val up">↓ 14</div><div class="ops-bar"><i style="width:70%;"></i></div></div>
+          <div class="ops-cell"><div class="lbl">Automation coverage</div><div class="val warn">AI + BOT</div><div class="ops-bar"><i style="width:82%; background:var(--amber);"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="statbar"><div class="wrap">
+    <div class="sitem"><div class="num">14 days</div><div class="lbl">AVG. TIME TO PAYMENT</div></div>
+    <div class="sitem"><div class="num">↓ AR</div><div class="lbl">FEWER DAYS IN A/R</div></div>
+    <div class="sitem"><div class="num">24/7</div><div class="lbl">INDIA + US COVERAGE</div></div>
+    <div class="sitem"><div class="num">12+</div><div class="lbl">RCM SERVICE LINES</div></div>
+  </div></div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="kicker">Who we are</div>
+      <h2>Brings excellence to your business.</h2>
+      <p style="margin-top:18px;"><strong>Guha Solutions</strong> offers an extensive range of solutions to help clients implement and upgrade best practices in healthcare, bringing the highest standards of excellence to your revenue cycle.</p>
+      <p>We have the right expertise, process and technology to restructure your revenue cycle — whether you're a billing company or a healthcare entity.</p>
+      <a href="#">Read more about us →</a>
+    </div>
+    <div>
+      <div class="value-row"><div class="n">01</div><div><h4>Get paid faster</h4><p>Dedicated resources and disciplined procedures ensure prompt payments.</p></div></div>
+      <div class="value-row"><div class="n">02</div><div><h4>Create efficiencies</h4><p>Streamlined processes and automation (AI &amp; bots) boost productivity.</p></div></div>
+      <div class="value-row"><div class="n">03</div><div><h4>Increase profitability</h4><p>Lower AR days, fewer denials, controlled costs, better margins.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="stress" id="services">
+  <div class="wrap">
+    <div class="kicker">What we handle for you</div>
+    <h2>Your medical billing shouldn't stress you out.</h2>
+    <p class="lede">Three areas practices ask us about most.</p>
+    <div class="sgrid" style="margin-top:36px;">
+      <div class="scard"><div class="tag">MODULE / CASH</div><h4>Cash Posting</h4><p>Payments applied to each patient's account accurately and on schedule.</p></div>
+      <div class="scard"><div class="tag">MODULE / VERIFY</div><h4>Eligibility Verification</h4><p>New and emergency accounts set up right, before changes become denials.</p></div>
+      <div class="scard"><div class="tag">MODULE / AR</div><h4>Accounts Receivable</h4><p>Full billing, insurance and patient AR management with EOB posting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Why practices choose Guha</div>
+    <h2>Built around what actually moves your revenue.</h2>
+    <div class="rgrid">
+      <div class="rcard"><div class="rn">REASON_01</div><h4>Get paid faster</h4><p>Insurers pay you faster when claims are clean the first time.</p></div>
+      <div class="rcard"><div class="rn">REASON_02</div><h4>Fewer adjustments</h4><p>Very little gets written off to insurance adjustments.</p></div>
+      <div class="rcard"><div class="rn">REASON_03</div><h4>Focus on your expertise</h4><p>You focus on patient co-pays — we handle the rest.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="rcm">
+  <div class="wrap">
+    <div class="kicker">Full service line</div>
+    <h2>Our RCM Services</h2>
+    <div class="rcm-grid">
+      <div class="rrow"><span class="rname">Physician Enrollment &amp; Credentialing</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Patient Eligibility Verification</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Demographics Entry</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Charge Capture &amp; Audits</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Medical Coding / Audit</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Remittance / Reconciliation</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Accounts Receivables</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Denial Management</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Patient Statements</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Credit Balance Check</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">MIS Reporting</span><span class="status">ACTIVE</span></div>
+      <div class="rrow"><span class="rname">Medical Scribe</span><span class="status">ACTIVE</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="kicker">Platforms we work in</div>
+    <h2>We handle claims across the systems you already use.</h2>
+    <div class="prow">
+      <span class="chip">Allscripts</span><span class="chip">Athenahealth</span><span class="chip">Epic</span>
+      <span class="chip">eClinicalWorks</span><span class="chip">Kareo</span><span class="chip">Office Ally</span>
+      <span class="chip">Change Healthcare</span><span class="chip">Navicure</span><span class="chip">ZirMed</span>
+      <span class="chip">+ more</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Become a part of the business today.</h2>
+    <p>Tell us about your practice or billing company, and we'll show you where your revenue cycle is leaking.</p>
+    <a class="btn" href="#">Contact Us</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><div class="brand"><div class="mark">G</div><div class="brand-name" style="color:var(--white);">Guha Technology &amp; Solutions</div></div>
+        <p style="margin-top:14px; max-width:320px;">A medical billing company associated globally, with most outsourcing activity performed from our Indian office.</p></div>
+      <div><h5>Quick Links</h5><ul><li>Home</li><li>About Us</li><li>Our Services</li><li>Careers</li><li>Contact</li></ul></div>
+      <div><h5>Our Details</h5><ul><li>US: +1 656 300 7472</li><li>IND: +91 90925 50369</li><li>info@guhasolution.com</li><li>Vellore – 632001, TN, India</li></ul></div>
+    </div>
+    <div class="fbottom"><span>© Guha Technology and Solutions Pvt Ltd</span><span>Design proposal by Vetri Suriya</span></div>
+  </div>
+</footer>
+</body>
+</html>

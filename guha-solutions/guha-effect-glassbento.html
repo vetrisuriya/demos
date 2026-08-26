@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guha Solutions — Glassmorphism + Bento Concept</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: { indigo: {500:'#6366F1',600:'#4F46E5'}, violet:{500:'#8B5CF6'}, fuchsia:{500:'#D946EF'}, cyan:{400:'#22D3EE'} },
+      fontFamily: { display:['Sora','sans-serif'], body:['Inter','sans-serif'] }
+    }}
+  }
+</script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  body{font-family:'Inter',sans-serif;}
+  .display{font-family:'Sora',sans-serif;}
+  .glass{background:rgba(255,255,255,0.12); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,0.25);}
+  .glass-light{background:rgba(255,255,255,0.65); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.6);}
+  .orb3d{background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.95), rgba(255,255,255,0) 45%), linear-gradient(155deg,var(--c1),var(--c2)); box-shadow:0 10px 24px -8px var(--c2), inset 0 -6px 10px rgba(0,0,0,.15);}
+  @keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+  .floaty{animation:float 4.5s ease-in-out infinite;}
+  .slide{position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease; background-size:cover; background-position:center;}
+  .slide.active{opacity:1;}
+  .scrollbar-none::-webkit-scrollbar{display:none;} .scrollbar-none{-ms-overflow-style:none; scrollbar-width:none;}
+  @keyframes marquee{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  .marquee-track{display:flex; width:max-content; animation:marquee 25s linear infinite;}
+  .mesh-bg{background:radial-gradient(circle at 15% 20%, rgba(139,92,246,.35), transparent 40%), radial-gradient(circle at 85% 15%, rgba(217,70,239,.3), transparent 40%), radial-gradient(circle at 50% 90%, rgba(34,211,238,.25), transparent 45%), #0B0E1A;}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+<div class="bg-slate-900 text-white text-center py-2 text-xs">DESIGN CONCEPT — <span class="text-fuchsia-400 font-semibold">GLASSMORPHISM + BENTO</span> · for review only</div>
+
+<!-- GLASS NAV -->
+<header class="sticky top-0 z-50 glass-light">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-2xl orb3d floaty" style="--c1:#8B5CF6; --c2:#4F46E5;"></div>
+      <span class="font-display font-bold text-lg">Guha Solutions</span>
+    </div>
+    <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+      <a href="#about" class="hover:text-indigo-600">About</a>
+      <a href="#services" class="hover:text-indigo-600">Services</a>
+      <a href="#rcm" class="hover:text-indigo-600">RCM</a>
+      <a href="#gallery" class="hover:text-indigo-600">Gallery</a>
+    </nav>
+    <a href="#contact" class="bg-gradient-to-r from-indigo-500 to-fuchsia-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-indigo-500/30">Contact Us</a>
+  </div>
+</header>
+
+<!-- HERO SLIDER -->
+<section class="relative h-[640px] overflow-hidden mesh-bg">
+  <div id="slides" class="absolute inset-0">
+    <div class="slide active" style="background-image:linear-gradient(180deg, rgba(11,14,26,.55), rgba(11,14,26,.85)), url('https://picsum.photos/seed/hero1/1600/900');"></div>
+    <div class="slide" style="background-image:linear-gradient(180deg, rgba(11,14,26,.55), rgba(11,14,26,.85)), url('https://picsum.photos/seed/hero2/1600/900');"></div>
+    <div class="slide" style="background-image:linear-gradient(180deg, rgba(11,14,26,.55), rgba(11,14,26,.85)), url('https://picsum.photos/seed/hero3/1600/900');"></div>
+  </div>
+
+  <div class="relative h-full max-w-7xl mx-auto px-6 flex flex-col justify-center">
+    <div class="glass rounded-3xl p-10 max-w-2xl text-white shadow-2xl">
+      <div class="inline-flex items-center gap-2 bg-white/15 rounded-full px-4 py-1.5 text-xs font-medium mb-6"><span class="w-2 h-2 rounded-full bg-cyan-400"></span>Revenue Cycle Management</div>
+      <h1 class="font-display font-bold text-4xl md:text-5xl leading-tight mb-5">Medical billing that helps you <span class="bg-gradient-to-r from-cyan-300 to-fuchsia-300 bg-clip-text text-transparent">grow and scale.</span></h1>
+      <p class="text-white/80 mb-8 max-w-lg">Guha Solutions brings the highest standards of excellence to your revenue cycle — so you focus on patient care while we focus on payments.</p>
+      <div class="flex gap-4 flex-wrap">
+        <a href="#contact" class="bg-white text-indigo-700 font-semibold px-7 py-3.5 rounded-full hover:shadow-xl transition">Talk to us</a>
+        <a href="#services" class="glass text-white font-semibold px-7 py-3.5 rounded-full">See our services</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2" id="dots">
+    <button onclick="goTo(0)" class="dot w-8 h-1.5 rounded-full bg-white"></button>
+    <button onclick="goTo(1)" class="dot w-8 h-1.5 rounded-full bg-white/40"></button>
+    <button onclick="goTo(2)" class="dot w-8 h-1.5 rounded-full bg-white/40"></button>
+  </div>
+</section>
+
+<!-- STAT BENTO OVERLAP -->
+<section class="max-w-6xl mx-auto px-6 -mt-14 relative z-10">
+  <div class="glass-light rounded-3xl shadow-xl p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="text-center p-4"><div class="font-display font-bold text-2xl text-indigo-600">14 days</div><div class="text-xs text-slate-500 mt-1">Avg. Time to Payment</div></div>
+    <div class="text-center p-4 md:border-l border-slate-200"><div class="font-display font-bold text-2xl text-fuchsia-600">↓ AR</div><div class="text-xs text-slate-500 mt-1">Fewer Days in A/R</div></div>
+    <div class="text-center p-4 md:border-l border-slate-200"><div class="font-display font-bold text-2xl text-cyan-600">24/7</div><div class="text-xs text-slate-500 mt-1">India + US Coverage</div></div>
+    <div class="text-center p-4 md:border-l border-slate-200"><div class="font-display font-bold text-2xl text-violet-600">12+</div><div class="text-xs text-slate-500 mt-1">RCM Service Lines</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+  <div class="relative">
+    <div class="absolute -inset-4 bg-gradient-to-br from-indigo-200 to-fuchsia-200 rounded-[2rem] blur-2xl opacity-60"></div>
+    <img src="https://picsum.photos/seed/aboutteam/640/460" class="relative rounded-3xl shadow-2xl w-full h-80 object-cover" alt="team placeholder">
+    <div class="absolute -bottom-6 -right-6 orb3d w-20 h-20 rounded-full floaty" style="--c1:#22D3EE; --c2:#0891B2;"></div>
+  </div>
+  <div>
+    <div class="text-xs font-semibold uppercase tracking-wide text-indigo-600 mb-3">Who we are</div>
+    <h2 class="font-display font-bold text-3xl md:text-4xl mb-5">Brings excellence to your business.</h2>
+    <p class="text-slate-600 mb-4">Guha Solutions offers an extensive range of solutions to help clients implement and upgrade best practices in healthcare, bringing the highest standards of excellence to your revenue cycle.</p>
+    <p class="text-slate-600 mb-6">We have the right expertise, process and technique to restructure your revenue cycle — whether you're a billing company or a healthcare entity.</p>
+    <div class="space-y-4">
+      <div class="flex gap-4 items-start"><div class="orb3d w-10 h-10 rounded-xl flex-shrink-0" style="--c1:#8B5CF6; --c2:#6D28D9;"></div><div><div class="font-semibold text-sm">Get paid faster</div><div class="text-xs text-slate-500">Dedicated resources, disciplined procedures.</div></div></div>
+      <div class="flex gap-4 items-start"><div class="orb3d w-10 h-10 rounded-xl flex-shrink-0" style="--c1:#D946EF; --c2:#A21CAF;"></div><div><div class="font-semibold text-sm">Create efficiencies</div><div class="text-xs text-slate-500">Automation via AI and bots.</div></div></div>
+      <div class="flex gap-4 items-start"><div class="orb3d w-10 h-10 rounded-xl flex-shrink-0" style="--c1:#22D3EE; --c2:#0E7490;"></div><div><div class="font-semibold text-sm">Increase profitability</div><div class="text-xs text-slate-500">Lower AR days, fewer denials.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENTO SERVICES -->
+<section id="services" class="bg-slate-900 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-xs font-semibold uppercase tracking-wide text-fuchsia-400 mb-3">What we handle for you</div>
+    <h2 class="font-display font-bold text-3xl md:text-4xl text-white mb-10">Your medical billing shouldn't stress you out.</h2>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="md:col-span-2 md:row-span-2 glass rounded-3xl p-8 flex flex-col justify-between min-h-[280px] bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20">
+        <div class="orb3d w-16 h-16 rounded-2xl floaty" style="--c1:#818CF8; --c2:#4F46E5;"></div>
+        <div><h3 class="font-display font-bold text-2xl text-white mb-2">Cash Posting</h3><p class="text-white/70 text-sm max-w-sm">When a claim is processed and paid, the amount is applied to each patient's account accurately and on schedule.</p></div>
+      </div>
+      <div class="glass rounded-3xl p-7 min-h-[130px]"><div class="orb3d w-12 h-12 rounded-xl mb-4" style="--c1:#22D3EE; --c2:#0891B2;"></div><h3 class="font-display font-bold text-lg text-white mb-1">Eligibility Verification</h3><p class="text-white/60 text-xs">Accounts set up right, before changes become denials.</p></div>
+      <div class="glass rounded-3xl p-7 min-h-[130px]"><div class="orb3d w-12 h-12 rounded-xl mb-4" style="--c1:#D946EF; --c2:#A21CAF;"></div><h3 class="font-display font-bold text-lg text-white mb-1">Accounts Receivable</h3><p class="text-white/60 text-xs">Full billing, insurance and AR management, EOB posting.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONS GLASS CAROUSEL -->
+<section class="py-20 bg-gradient-to-b from-slate-50 to-indigo-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-end justify-between mb-8 flex-wrap gap-4">
+      <div><div class="text-xs font-semibold uppercase tracking-wide text-indigo-600 mb-3">Why practices choose us</div><h2 class="font-display font-bold text-3xl md:text-4xl">Reasons to choose Guha.</h2></div>
+      <div class="flex gap-3">
+        <button onclick="document.getElementById('rTrack').scrollBy({left:-320,behavior:'smooth'})" class="w-11 h-11 rounded-full glass-light shadow-md flex items-center justify-center">←</button>
+        <button onclick="document.getElementById('rTrack').scrollBy({left:320,behavior:'smooth'})" class="w-11 h-11 rounded-full glass-light shadow-md flex items-center justify-center">→</button>
+      </div>
+    </div>
+    <div id="rTrack" class="flex gap-5 overflow-x-auto scrollbar-none snap-x snap-mandatory pb-4">
+      <div class="snap-start shrink-0 w-72 bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-white"><div class="orb3d w-10 h-10 rounded-lg mb-4" style="--c1:#818CF8; --c2:#4F46E5;"></div><h4 class="font-display font-bold mb-2">Get paid faster</h4><p class="text-sm text-slate-500">Insurers pay you faster when claims are clean the first time.</p></div>
+      <div class="snap-start shrink-0 w-72 bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-white"><div class="orb3d w-10 h-10 rounded-lg mb-4" style="--c1:#22D3EE; --c2:#0891B2;"></div><h4 class="font-display font-bold mb-2">Fewer adjustments</h4><p class="text-sm text-slate-500">Very little gets written off to insurance adjustments.</p></div>
+      <div class="snap-start shrink-0 w-72 bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-white"><div class="orb3d w-10 h-10 rounded-lg mb-4" style="--c1:#D946EF; --c2:#A21CAF;"></div><h4 class="font-display font-bold mb-2">Focus on your expertise</h4><p class="text-sm text-slate-500">You focus on patient co-pays — we handle the rest.</p></div>
+      <div class="snap-start shrink-0 w-72 bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-white"><div class="orb3d w-10 h-10 rounded-lg mb-4" style="--c1:#A78BFA; --c2:#7C3AED;"></div><h4 class="font-display font-bold mb-2">Real-time reporting</h4><p class="text-sm text-slate-500">MIS reports keep you informed at every stage.</p></div>
+      <div class="snap-start shrink-0 w-72 bg-white/80 backdrop-blur rounded-2xl p-6 shadow-lg border border-white"><div class="orb3d w-10 h-10 rounded-lg mb-4" style="--c1:#38BDF8; --c2:#0369A1;"></div><h4 class="font-display font-bold mb-2">Two time zones</h4><p class="text-sm text-slate-500">India + US coverage keeps work moving around the clock.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RCM BENTO -->
+<section id="rcm" class="max-w-7xl mx-auto px-6 py-20">
+  <div class="text-xs font-semibold uppercase tracking-wide text-indigo-600 mb-3">Full service line</div>
+  <h2 class="font-display font-bold text-3xl md:text-4xl mb-10">Our RCM Services.</h2>
+  <div class="grid md:grid-cols-4 gap-4">
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Physician Enrollment &amp; Credentialing</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Patient Eligibility Verification</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Demographics Entry</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Charge Capture &amp; Audits</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Medical Coding / Audit</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Remittance / Reconciliation</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Accounts Receivables</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Denial Management</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Patient Statements</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Credit Balance Check</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">MIS Reporting</div>
+    <div class="glass-light rounded-2xl p-5 shadow-md text-sm font-medium">Medical Scribe</div>
+  </div>
+</section>
+
+<!-- GALLERY MARQUEE -->
+<section id="gallery" class="py-20 bg-slate-900 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 mb-8">
+    <div class="text-xs font-semibold uppercase tracking-wide text-cyan-400 mb-3">Inside Guha</div>
+    <h2 class="font-display font-bold text-3xl md:text-4xl text-white">Our team at work.</h2>
+  </div>
+  <div class="marquee-track px-6">
+    <img src="https://picsum.photos/seed/gg1/300/210" class="w-64 h-44 object-cover rounded-2xl mr-5 shadow-xl">
+    <img src="https://picsum.photos/seed/gg2/300/210" class="w-64 h-44 object-cover rounded-2xl mr-5 shadow-xl">
+    <img src="https://picsum.photos/seed/gg3/300/210" class="w-64 h-44 object-cover rounded-2xl mr-5 shadow-xl">
+    <img src="https://picsum.photos/seed/gg4/300/210" class="w-64 h-44 object-cover rounded-2xl mr-5 shadow-xl">
+    <img src="https://picsum.photos/seed/gg1/300/210" class="w-64 h-44 object-cover rounded-2xl mr-5 shadow-xl">
+    <img src="https://picsum.photos/seed/gg2/300/210" class="w-64 h-44 object-cover rounded-2xl mr-5 shadow-xl">
+    <img src="https://picsum.photos/seed/gg3/300/210" class="w-64 h-44 object-cover rounded-2xl mr-5 shadow-xl">
+    <img src="https://picsum.photos/seed/gg4/300/210" class="w-64 h-44 object-cover rounded-2xl mr-5 shadow-xl">
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="max-w-7xl mx-auto px-6 py-20">
+  <div class="text-xs font-semibold uppercase tracking-wide text-indigo-600 mb-3">Platforms we work in</div>
+  <h2 class="font-display font-bold text-3xl md:text-4xl mb-8">Systems you already use.</h2>
+  <div class="flex flex-wrap gap-3">
+    <span class="glass-light rounded-full px-5 py-2.5 text-sm shadow-sm">Allscripts</span>
+    <span class="glass-light rounded-full px-5 py-2.5 text-sm shadow-sm">Athenahealth</span>
+    <span class="glass-light rounded-full px-5 py-2.5 text-sm shadow-sm">Epic</span>
+    <span class="glass-light rounded-full px-5 py-2.5 text-sm shadow-sm">eClinicalWorks</span>
+    <span class="glass-light rounded-full px-5 py-2.5 text-sm shadow-sm">Kareo</span>
+    <span class="glass-light rounded-full px-5 py-2.5 text-sm shadow-sm">Office Ally</span>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="relative py-24 text-center overflow-hidden mesh-bg">
+  <div class="relative max-w-2xl mx-auto px-6">
+    <h2 class="font-display font-bold text-4xl text-white mb-4">Become a part of the business today.</h2>
+    <p class="text-white/70 mb-8">Tell us about your practice or billing company, and we'll show you where your revenue cycle is leaking.</p>
+    <a href="#" class="inline-block bg-white text-indigo-700 font-semibold px-8 py-4 rounded-full shadow-2xl">Contact Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-950 text-slate-400 py-14 text-sm">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+    <div><div class="flex items-center gap-3 mb-4"><div class="orb3d w-9 h-9 rounded-xl" style="--c1:#8B5CF6; --c2:#4F46E5;"></div><span class="font-display font-bold text-white">Guha Solutions</span></div>
+      <p class="max-w-xs">A medical billing company associated globally, with most outsourcing activity performed from our Indian office.</p></div>
+    <div><div class="text-xs uppercase text-fuchsia-400 mb-4">Quick Links</div><ul class="space-y-2"><li>Home</li><li>About Us</li><li>Our Services</li><li>Careers</li><li>Contact</li></ul></div>
+    <div><div class="text-xs uppercase text-fuchsia-400 mb-4">Our Details</div><ul class="space-y-2"><li>US: +1 656 300 7472</li><li>IND: +91 90925 50369</li><li>info@guhasolution.com</li><li>Vellore – 632001, TN, India</li></ul></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 pt-6 flex justify-between flex-wrap gap-3 text-xs">
+    <span>© Guha Technology and Solutions Pvt Ltd</span><span>Design concept by Vetri Suriya</span>
+  </div>
+</footer>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  let cur = 0;
+  function goTo(i){
+    slides[cur].classList.remove('active'); dots[cur].classList.remove('bg-white'); dots[cur].classList.add('bg-white/40');
+    cur = i;
+    slides[cur].classList.add('active'); dots[cur].classList.add('bg-white'); dots[cur].classList.remove('bg-white/40');
+  }
+  setInterval(()=>{ goTo((cur+1)%slides.length); }, 4500);
+</script>
+</body>
+</html>
